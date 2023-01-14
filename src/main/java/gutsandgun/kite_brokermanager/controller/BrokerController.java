@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="v1/broker")
+@RequestMapping(value="broker")
 @Log4j2
 public class BrokerController {
 

@@ -28,8 +28,8 @@ public class BrokerServiceImpl implements BrokerService{
         List<BrokerDto> brokerDtoList = new ArrayList<>();
         List<Broker> brokerList = readBrokerRepository.findAll();
 
-        brokerList.forEach(survey -> {
-            BrokerDto brokerDto = mapper.map(survey, BrokerDto.class);
+        brokerList.forEach(broker -> {
+            BrokerDto brokerDto = mapper.map(broker, BrokerDto.class);
             brokerDtoList.add(brokerDto);
         });
 
