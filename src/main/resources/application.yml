@@ -1,5 +1,6 @@
 server:
   port: 8005
+
 spring:
   writedb:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -56,10 +57,10 @@ keycloak:
   credentials:
     secret: yt7mnKRgBWwwr8jYzoiaV0PHRm7hJWm0
 
-  logging:
-    level:
-      org:
-        hibernate:
-          type:
-            descriptor:
-              sql: trace  # query의 ?에 어떤 값이 들어가는지 TRACE Log에 값을 보여줌
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace  # query의 ?에 어떤 값이 들어가는지 TRACE Log에 값을 보여줌
