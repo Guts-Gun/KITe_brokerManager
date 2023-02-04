@@ -1,5 +1,6 @@
 package gutsandgun.kite_brokermanager.entity.read;
 
+import gutsandgun.kite_brokermanager.entity.BaseTimeEntity;
 import gutsandgun.kite_brokermanager.type.SendingRuleType;
 import gutsandgun.kite_brokermanager.type.SendingStatus;
 import gutsandgun.kite_brokermanager.type.SendingType;
@@ -19,7 +20,7 @@ import org.hibernate.annotations.Where;
 @Setter
 @Where(clause = "is_deleted = false")
 @SQLDelete(sql = "UPDATE result_sending SET is_deleted=true WHERE id = ?")
-public class ResultSending {
+public class ResultSending extends BaseTimeEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
