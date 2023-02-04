@@ -3,15 +3,15 @@ package gutsandgun.kite_brokermanager.entity.write;
 
 import gutsandgun.kite_brokermanager.entity.BaseTimeEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import java.awt.*;
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Getter
 @Setter
@@ -40,7 +40,8 @@ public class Broker extends BaseTimeEntity {
 	 * 중계사 컬러
 	 */
 	@Comment("중계사 색")
-	private Color color = Color.RED;
+	@ColumnDefault("FF0000")
+	private String color = "#FF0000";
 
 
 	/**
@@ -63,5 +64,13 @@ public class Broker extends BaseTimeEntity {
 
 	@ColumnDefault("false")
 	private Boolean isDeleted = false;
+
+	@Builder
+	public Broker(String name, String ip, String color, Float price) {
+		this.name = name;
+		this.ip = ip;
+		this.color = color;
+		this.price = price;
+	}
 }
 

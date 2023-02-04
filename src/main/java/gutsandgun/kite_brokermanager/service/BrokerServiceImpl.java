@@ -2,8 +2,10 @@ package gutsandgun.kite_brokermanager.service;
 
 
 import gutsandgun.kite_brokermanager.dto.BrokerDto;
+import gutsandgun.kite_brokermanager.dto.BrokerInfoDto;
 import gutsandgun.kite_brokermanager.entity.read.Broker;
 import gutsandgun.kite_brokermanager.repository.read.ReadBrokerRepository;
+import gutsandgun.kite_brokermanager.repository.write.WriteBrokerRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,10 @@ public class BrokerServiceImpl implements BrokerService{
     ReadBrokerRepository readBrokerRepository;
 
     @Autowired
+    WriteBrokerRepository writeBrokerRepository;
+
+
+    @Autowired
     private final ModelMapper mapper;
 
 
@@ -34,6 +40,12 @@ public class BrokerServiceImpl implements BrokerService{
         });
 
         return brokerDtoList;
+    }
+
+    @Override
+    public long addBroker(BrokerInfoDto brokerInfoDto) {
+        writeBrokerRepository.save(brokerInfoDto.toEntity());
+        return 0;
     }
 
 }

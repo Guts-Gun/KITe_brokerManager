@@ -9,8 +9,6 @@ import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import java.awt.*;
-
 @Entity
 @Getter
 @Setter
@@ -39,7 +37,8 @@ public class Broker extends BaseTimeEntity {
 	 * 중계사 컬러
 	 */
 	@Comment("중계사 색")
-	private Color color = Color.RED;
+	@ColumnDefault("FF0000")
+	private String color = "#FF0000";
 
 
 	/**
