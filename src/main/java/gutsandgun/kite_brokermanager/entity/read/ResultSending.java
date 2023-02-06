@@ -78,10 +78,10 @@ public class ResultSending extends BaseTimeEntity {
 	private Long failedMessage;
 
 	/**
-	 * 평균 속도
+	 * 평균 응답속도
 	 */
-	@Comment("평군 속도")
-	private Float avgSpeed;
+	@Comment("평군 응답속도")
+	private Float avgLatency;
 
 
 	// 시간 관련 로그

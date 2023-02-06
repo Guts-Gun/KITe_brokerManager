@@ -26,7 +26,7 @@ public class User extends BaseTimeEntity {
     /**
      * user 이름
      */
-    @Comment("")
+    @Comment("유저 이름")
     private String name;
 
     /**

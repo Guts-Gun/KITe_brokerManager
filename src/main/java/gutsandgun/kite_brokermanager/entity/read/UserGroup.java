@@ -41,5 +41,5 @@ public class UserGroup extends BaseTimeEntity {
 
     @Comment("수정자")
     @Column(name = "mod_id", length = 20)
-    private String ModId;
+    private String modId;
 }

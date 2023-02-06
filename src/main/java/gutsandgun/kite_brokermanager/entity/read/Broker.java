@@ -34,7 +34,7 @@ public class Broker extends BaseTimeEntity {
 	private String ip;
 
 	/**
-	 * 중계사 컬러
+	 * 중계사 컬러 hex
 	 */
 	@Comment("중계사 색")
 	@ColumnDefault("FF0000")
@@ -48,10 +48,11 @@ public class Broker extends BaseTimeEntity {
 	private Float price;
 
 	/**
-	 * 중계사 속도
+	 * 중계사 응답속도
 	 */
-	@Comment("중계사 속도")
-	private Float speed;
+	@Comment("중계사 응답속도")
+	private Float latency;
+
 
 	/**
 	 * 중계사 실패율

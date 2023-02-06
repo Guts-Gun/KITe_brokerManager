@@ -37,10 +37,11 @@ public class Broker extends BaseTimeEntity {
 	private String ip;
 
 	/**
-	 * 중계사 컬러
+	 * 중계사 컬러 hex
 	 */
 	@Comment("중계사 색")
-	@ColumnDefault("FF0000")
+	@ColumnDefault("#FF0000")
+	@Builder.Default
 	private String color = "#FF0000";
 
 
@@ -48,21 +49,25 @@ public class Broker extends BaseTimeEntity {
 	 * 중계사 가격
 	 */
 	@Comment("중계사 가격")
-	private Float price;
+	@ColumnDefault("0")
+	private Float price = 0F;
 
 	/**
 	 * 중계사 속도
 	 */
 	@Comment("중계사 속도")
-	private Float speed;
+	@ColumnDefault("0")
+	private Float latency = 0F;
 
 	/**
 	 * 중계사 실패율
 	 */
 	@Comment("중계사 실패율")
-	private Float failureRate;
+	@ColumnDefault("0")
+	private Float failureRate = 0F;
 
 	@ColumnDefault("false")
+	@Builder.Default
 	private Boolean isDeleted = false;
 
 	@Builder

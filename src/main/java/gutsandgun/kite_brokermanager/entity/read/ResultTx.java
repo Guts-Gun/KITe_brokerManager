@@ -93,7 +93,7 @@ public class ResultTx extends BaseTimeEntity {
 	 * 미디어 호스팅 주소
 	 */
 	@Comment("미디어 호스팅 주소")
-	private String media_link;
+	private String mediaLink;
 
 	/**
 	 * 메시지 내용

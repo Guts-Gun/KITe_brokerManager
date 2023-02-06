@@ -68,6 +68,6 @@ public class SendingEmail extends BaseTimeEntity {
 	private String var3;
 
 
-	    @ColumnDefault("false")
+	@ColumnDefault("false")
 	private Boolean isDeleted = false;
 }

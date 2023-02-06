@@ -19,7 +19,7 @@ public class BrokerDto {
 
     private Float price;
 
-    private Float speed;
+    private Float latency;
 
     private Float failureRate;
 

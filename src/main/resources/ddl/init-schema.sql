@@ -44,7 +44,7 @@ CREATE TABLE broker
     mod_dt       VARCHAR(255)          NULL,
     name         VARCHAR(255)          NULL,
     ip           VARCHAR(255)          NULL,
-    color        BLOB                  NULL,
+    color        VARCHAR(255)          NULL,
     price        FLOAT                 NULL,
     speed        FLOAT                 NULL,
     failure_rate FLOAT                 NULL,
@@ -205,12 +205,12 @@ CREATE TABLE sending_msg
     sender        VARCHAR(255)          NULL,
     receiver      VARCHAR(255)          NULL,
     name          VARCHAR(255)          NULL,
-    reg_id        VARCHAR(20)           NOT NULL,
-    mod_id        VARCHAR(20)           NULL,
     var1          VARCHAR(255)          NULL,
     var2          VARCHAR(255)          NULL,
     var3          VARCHAR(255)          NULL,
     is_deleted    BIT(1)                NULL,
+    reg_id        VARCHAR(20)           NOT NULL,
+    mod_id        VARCHAR(20)           NULL,
     CONSTRAINT pk_sending_msg PRIMARY KEY (id)
 );
 
