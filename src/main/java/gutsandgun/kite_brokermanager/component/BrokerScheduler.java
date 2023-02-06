@@ -28,6 +28,18 @@ public class BrokerScheduler {
 		brokerRepository.saveAllAndFlush(brokerList);
 	}
 
+	@Scheduled(cron = "0/30 * * * * *")
+	public void brokerFailureRateUpdate() {
+		List<Broker> brokerList = getBrokerList();
+
+		for (Broker broker : brokerList) {
+			float avg = getBrokerFailureRate(broker.getId());
+			broker.setFailureRate(avg);
+		}
+		brokerRepository.saveAllAndFlush(brokerList);
+	}
+
+
 	public List<Broker> getBrokerList() {
 		List<Broker> brokerList = brokerRepository.findAll();
 		return brokerList;
@@ -36,11 +48,24 @@ public class BrokerScheduler {
 	public Float getBrokerRecentLatency(long brokerId) {
 		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop5ByBrokerIdAndSendingTypeAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(brokerId, SendingType.SMS);
 
-		long sum = 0;
+		float sum = 0;
 		for (ResultTxDto result : resultTxDtoList) {
 			sum += (result.getCompleteTime() - result.getSendTime());
 		}
 		float avg = resultTxDtoList.size() > 0 ? sum / resultTxDtoList.size() : 0;
+
+		return avg;
+	}
+
+	private float getBrokerFailureRate(Long brokerId) {
+		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop100ByBrokerIdAndSendingTypeAndCompleteTimeNotNullOrderByIdDesc(brokerId, SendingType.SMS);
+
+		float sum = 0;
+		for (ResultTxDto result : resultTxDtoList) {
+			if (!result.getSuccess())
+				sum++;
+		}
+		float avg = resultTxDtoList.size() > 0 ? sum / resultTxDtoList.size() * 100 : 0;
 
 		return avg;
 	}

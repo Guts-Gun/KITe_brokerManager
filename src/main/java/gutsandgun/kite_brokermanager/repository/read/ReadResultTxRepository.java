@@ -15,5 +15,9 @@ public interface ReadResultTxRepository extends JpaRepository<ResultTx, Long> {
 
 	List<ResultTxDto> findTop5ByBrokerIdAndSendingTypeAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(Long brokerId, SendingType sendingType);
 
+	List<ResultTxDto> findTop100ByBrokerIdAndSendingTypeAndCompleteTimeNotNullOrderByIdDesc(Long brokerId, SendingType sendingType);
+
+
+
 
 }
