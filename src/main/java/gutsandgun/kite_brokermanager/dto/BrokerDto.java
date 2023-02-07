@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+/**
+ * A DTO for the {@link gutsandgun.kite_brokermanager.entity.write.Broker} entity
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
