@@ -1,9 +1,11 @@
 package gutsandgun.kite_brokermanager.dto;
 
+import gutsandgun.kite_brokermanager.type.SendingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 /**
  * A DTO for the {@link gutsandgun.kite_brokermanager.entity.write.Broker} entity
  */
@@ -13,16 +15,18 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BrokerDto {
 
-    private Long id;
+	private Long id;
 
-    private String name;
+	private String name;
 
-    private String ip;
+	private String ip;
 
-    private Float price;
+	private SendingType sendingType;
 
-    private Float latency;
+	private Float price;
 
-    private Float failureRate;
+	private Float latency;
+
+	private Float failureRate;
 
 }

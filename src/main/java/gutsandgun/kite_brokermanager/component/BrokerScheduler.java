@@ -4,7 +4,6 @@ import gutsandgun.kite_brokermanager.dto.ResultTxDto;
 import gutsandgun.kite_brokermanager.entity.write.Broker;
 import gutsandgun.kite_brokermanager.repository.read.ReadResultTxRepository;
 import gutsandgun.kite_brokermanager.repository.write.WriteBrokerRepository;
-import gutsandgun.kite_brokermanager.type.SendingType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -46,7 +45,7 @@ public class BrokerScheduler {
 	}
 
 	public Float getBrokerRecentLatency(long brokerId) {
-		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop5ByBrokerIdAndSendingTypeAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(brokerId, SendingType.SMS);
+		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop5ByBrokerIdAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(brokerId);
 
 		float sum = 0;
 		for (ResultTxDto result : resultTxDtoList) {
@@ -58,7 +57,7 @@ public class BrokerScheduler {
 	}
 
 	private float getBrokerFailureRate(Long brokerId) {
-		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop100ByBrokerIdAndSendingTypeAndCompleteTimeNotNullOrderByIdDesc(brokerId, SendingType.SMS);
+		List<ResultTxDto> resultTxDtoList = resultTxRepository.findTop100ByBrokerIdAndCompleteTimeNotNullOrderByIdDesc(brokerId);
 
 		float sum = 0;
 		for (ResultTxDto result : resultTxDtoList) {
