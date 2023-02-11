@@ -29,4 +29,6 @@ public class BrokerDto {
 
 	private Float failureRate;
 
+	private String color;
+
 }
