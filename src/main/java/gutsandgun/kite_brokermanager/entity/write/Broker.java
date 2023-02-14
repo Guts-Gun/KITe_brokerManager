@@ -1,6 +1,5 @@
 package gutsandgun.kite_brokermanager.entity.write;
 
-
 import gutsandgun.kite_brokermanager.entity.BaseTimeEntity;
 import gutsandgun.kite_brokermanager.type.SendingType;
 import jakarta.persistence.*;
@@ -83,4 +82,3 @@ public class Broker extends BaseTimeEntity {
 		this.price = price;
 	}
 }
-

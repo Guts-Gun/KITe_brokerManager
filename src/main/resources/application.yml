@@ -2,6 +2,23 @@ server:
   port: 8005
 
 spring:
+#  임시 db
+#  writedb:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    jdbc-url: jdbc:mysql://yjhome.kro.kr:3306/broker?usessl=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: root
+#    password: qwer1234!
+#    hikari:
+#      maximum-pool-size: 10
+#
+#  readdb:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    jdbc-url: jdbc:mysql://yjhome.kro.kr:3306/read?usessl=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: root
+#    password: qwer1234!
+#    hikari:
+#      maximum-pool-size: 10
+
   writedb:
     driver-class-name: com.mysql.cj.jdbc.Driver
     jdbc-url: jdbc:mysql://gutsandgun.kro.kr:12007/broker?usessl=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8

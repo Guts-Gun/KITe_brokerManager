@@ -10,11 +10,12 @@ import java.io.Serializable;
  */
 @Data
 public class ResultTxTransferDto implements Serializable {
-	private final Long txId;
+	private final Long resultTxId;
 	private final Long brokerId;
 	private final Boolean success;
 	private final FailReason failReason;
 	private final Long sendTime;
 	private final Long completeTime;
 	private final Long logTime;
+
 }
