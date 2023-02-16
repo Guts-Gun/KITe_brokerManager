@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -25,6 +26,9 @@ public class BrokerScheduler {
 			float avg = getBrokerRecentLatency(broker.getId());
 			broker.setLatency(avg);
 		}
+		System.out.println(brokerList.stream()
+				.map(broker -> (broker.getName() + " : " + broker.getLatency()))
+				.collect(Collectors.toList()));
 		brokerRepository.saveAllAndFlush(brokerList);
 	}
 
@@ -37,6 +41,9 @@ public class BrokerScheduler {
 			float avg = getBrokerFailureRate(broker.getId());
 			broker.setFailureRate(avg);
 		}
+		System.out.println(brokerList.stream()
+				.map(broker -> (broker.getName() + " : " + broker.getFailureRate()))
+				.collect(Collectors.toList()));
 		brokerRepository.saveAllAndFlush(brokerList);
 	}
 
