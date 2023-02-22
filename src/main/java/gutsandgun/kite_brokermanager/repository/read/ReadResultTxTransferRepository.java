@@ -14,7 +14,10 @@ public interface ReadResultTxTransferRepository extends JpaRepository<ResultTxTr
 	 * @param brokerId
 	 * @return List<ResultTxTransferDto>
 	 */
-	List<ResultTxTransferDto> findTop5ByBrokerIdAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(Long brokerId);
+	List<ResultTxTransferDto> findTop5ByBrokerIdAndSuccessNotNullOrderByIdDesc(Long brokerId);
+
+//	List<ResultTxTransferDto> findTop5ByBrokerIdAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(Long brokerId);
+
 
 	/**
 	 * get finished message tx by broker id for fail rate
@@ -22,5 +25,9 @@ public interface ReadResultTxTransferRepository extends JpaRepository<ResultTxTr
 	 * @param brokerId
 	 * @return List<ResultTxTransferDto>
 	 */
-	List<ResultTxTransferDto> findTop100ByBrokerIdAndCompleteTimeNotNullOrderByIdDesc(Long brokerId);
+	List<ResultTxTransferDto> findTop100ByBrokerIdAndSuccessNotNullOrderByIdDesc(Long brokerId);
+
+//	List<ResultTxTransferDto> findTop100ByBrokerIdAndCompleteTimeNotNullOrderByIdDesc(Long brokerId);
+
+
 }

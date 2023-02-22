@@ -54,7 +54,7 @@ public class BrokerScheduler {
 	}
 
 	public Float getBrokerRecentLatency(long brokerId) {
-		List<ResultTxTransferDto> resultTxTransferDtoList = resultTxTransferRepository.findTop5ByBrokerIdAndSendTimeNotNullAndCompleteTimeNotNullOrderByIdDesc(brokerId);
+		List<ResultTxTransferDto> resultTxTransferDtoList = resultTxTransferRepository.findTop5ByBrokerIdAndSuccessNotNullOrderByIdDesc(brokerId);
 
 		float sum = 0;
 		for (ResultTxTransferDto result : resultTxTransferDtoList) {
@@ -66,7 +66,7 @@ public class BrokerScheduler {
 	}
 
 	private float getBrokerFailureRate(Long brokerId) {
-		List<ResultTxTransferDto> resultTxTransferDtoList = resultTxTransferRepository.findTop100ByBrokerIdAndCompleteTimeNotNullOrderByIdDesc(brokerId);
+		List<ResultTxTransferDto> resultTxTransferDtoList = resultTxTransferRepository.findTop100ByBrokerIdAndSuccessNotNullOrderByIdDesc(brokerId);
 
 		float sum = 0;
 		for (ResultTxTransferDto result : resultTxTransferDtoList) {
